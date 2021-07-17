@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import Search from './features/Search';
+import Meal from './features/Meal';
+import Nutrients from './features/Nutrients';
 
-function App() {
+function App({ state, dispatch }) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <section>
+        <Search
+          meal={state.meal}
+          calories={state.search}
+          dispatch={dispatch}
+        />
+      </section>
+      <section>
+        {state.meal.length > 0 ? <Nutrients meal={state.meal} /> : null}
+      </section>
+      <section className='meals'>
+        {state.meal.length > 0 ? (state.meal[0].meals.map(meal =>
+        <Meal 
+          key={meal.id}
+          meal={meal}
+        />
+        )) : null}
+      </section>
     </div>
   );
 }
