@@ -13,15 +13,15 @@ function App({ state, dispatch }) {
         />
       </section>
       <section>
-        {state.meal.length > 0 ? <Nutrients meal={state.meal} /> : null}
+        {state.meal && <Nutrients meal={state.meal} />}
       </section>
       <section className='meals'>
-        {state.meal.length > 0 ? (state.meal[0].meals.map(meal =>
+        {state.meal && (state.meal.meals.map(meal =>
         <Meal 
           key={meal.id}
           meal={meal}
         />
-        )) : null}
+        ))}
       </section>
     </div>
   );

@@ -1,15 +1,10 @@
-import { GiAvocado } from 'react-icons/gi';
-import { GiChickenLeg } from 'react-icons/gi';
-import { GiSlicedBread } from 'react-icons/gi';
-import { GoFlame } from 'react-icons/go';
-
 
 const Nutrients = ({ meal }) => {
-    const nutrients = meal[0].nutrients
+    const nutrients = meal.nutrients
 
     return (
         <div>
-            <table>
+            {meal && <table>
                 <tbody>
                     <tr>
                         <td>
@@ -50,7 +45,7 @@ const Nutrients = ({ meal }) => {
                         </td>
                     </tr>
                 </tbody>
-            </table>
+            </table>}
         </div>
     )
 }

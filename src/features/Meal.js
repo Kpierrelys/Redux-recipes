@@ -14,7 +14,7 @@ const Meal = ({ meal }) => {
 
     return (
         <div>
-            <div className='meal-card-flex'>
+            {meal && <div className='meal-card-flex'>
                 <div className='meal-card'>
                     {<img src={image} alt={meal.title} style={{width: "100%"}} />}
                     <div className='information'>
@@ -26,7 +26,7 @@ const Meal = ({ meal }) => {
                         <a className='link' href={meal.sourceUrl}><button className='recipe-link'>Go to     Recipe</button></a>
                     </div>
                 </div>
-            </div>
+            </div>}
         </div>
     )
 }
