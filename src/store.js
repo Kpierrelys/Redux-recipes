@@ -10,7 +10,7 @@ const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 export const store = createStore(combineReducers({
     search: searchReducer,
-    meal: mealReducer
+    myMeals: mealReducer
 }),
     composeEnhancer(applyMiddleware(thunk))
 );

@@ -7,21 +7,24 @@ function App({ state, dispatch }) {
     <div>
       <section>
         <Search
-          meal={state.meal}
           calories={state.search}
           dispatch={dispatch}
         />
       </section>
       <section>
-        {state.meal && <Nutrients meal={state.meal} />}
+        {state.myMeals.meals && <Nutrients meal={state.myMeals.meals} />}
       </section>
       <section className='meals'>
-        {state.meal && (state.meal.meals.map(meal =>
-        <Meal 
-          key={meal.id}
-          meal={meal}
-        />
-        ))}
+        {
+          state.myMeals.meals && 
+          (state.myMeals.meals.meals.map(meal =>
+            <Meal
+            key={meal.id} 
+            mealState={state.myMeals}
+            meal={meal}
+          />) 
+            )
+        }
       </section>
     </div>
   );

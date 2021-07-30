@@ -1,6 +1,6 @@
 import { setSearchCalorie } from "./searchSlice";
-import { addMeal } from "./mealsSlice";
 import { clearSearch } from "./searchSlice";
+import { myCalories } from "./mealsSlice";
 
 const Search = ({ calories, dispatch }) => {
     
@@ -9,12 +9,11 @@ const Search = ({ calories, dispatch }) => {
         dispatch(setSearchCalorie(calorie));
     }
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    const handleSubmit = () => {
         if (!calories) {
             alert('number of calories needed')
         } else {
-            dispatch(addMeal(calories));
+            dispatch(myCalories(calories))
             dispatch(clearSearch());
         }
     }
