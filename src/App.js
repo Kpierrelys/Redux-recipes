@@ -14,18 +14,13 @@ function App({ state, dispatch }) {
       <section>
         {state.myMeals.meals && <Nutrients meal={state.myMeals.meals} />}
       </section>
-      <section className='meals'>
-        {
-          state.myMeals.meals && 
-          (state.myMeals.meals.meals.map(meal =>
+        {state.myMeals.meals ? <section className='meals'>
+          {state.myMeals.meals.meals.map(meal =>
             <Meal
-            key={meal.id} 
-            mealState={state.myMeals}
-            meal={meal}
-          />) 
-            )
+              key={meal.id} 
+              mealState={state.myMeals}
+              meal={meal}/>)} </section> : <div className="error">{state.myMeals.error}</div>
         }
-      </section>
     </div>
   );
 }

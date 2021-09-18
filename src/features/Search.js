@@ -9,19 +9,22 @@ const Search = ({ calories, dispatch }) => {
         dispatch(setSearchCalorie(calorie));
     }
 
-    const handleSubmit = () => {
-        if (!calories) {
-            alert('number of calories needed')
-        } else {
-            dispatch(myCalories(calories))
-            dispatch(clearSearch());
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        if (event.keyCode === 13 || event.type === 'click') {
+            if (!calories) {
+                alert('number of calories needed')
+            } else {
+                dispatch(myCalories(calories))
+                dispatch(clearSearch());
+            }
         }
     }
 
     return (
         <div>
             <form onSubmit={handleSubmit}>
-                <input type='text' placeholder='Calories (e.g. 2000)' value={calories} onChange={userInput} />
+                <input type='text' placeholder='Calories (e.g. 2000)' onKeyUp={handleSubmit} value={calories} onChange={userInput} />
                 <i className="fas fa-search fa-xs"></i>
             </form>
             <div className='title' onClick={handleSubmit}>

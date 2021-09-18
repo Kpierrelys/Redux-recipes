@@ -5,7 +5,6 @@ const Meal = ({ meal, mealState }) => {
     const [image, setImage] = useState('');
 
     const loading = mealState.loading
-    const error = mealState.error
 
     useEffect(() => {
         fetch(`https://api.spoonacular.com/recipes/${meal.id}/information?apiKey=${MEALS_API_KEY}&includeNutrition=false`)
@@ -15,7 +14,7 @@ const Meal = ({ meal, mealState }) => {
     }, [meal.id]);
     return (
         <div>
-            {loading ? (<div class="loader"></div>) : error ? (<h2>{error}</h2>) :   
+            {loading ? (<div className="loader"></div>) :   
             (mealState.meals &&
                 <div className='meal-card-flex'>
                 <div className='meal-card'>

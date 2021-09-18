@@ -62,7 +62,7 @@ export const myCalories = (calories) => {
                 dispatch(fetchMealsSuccess(meals))
             })
             .catch(error => {
-                dispatch(fetchMealsFailure('Error', error.message))
+                dispatch(fetchMealsFailure('Error: ' + error.message))
             })
     }
 }
